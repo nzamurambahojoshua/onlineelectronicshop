@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onlineshopping | Compare - Product Comparison</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
+        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
+        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
+        .compare-card { background: white; border-radius: 24px; padding: 24px; }
+        select, .btn-primary { padding: 12px 20px; border-radius: 40px; border: 1px solid #cbd5e1; font-family: inherit; width: 100%; margin: 8px 0; }
+        .btn-primary { background: #1f6390; color: white; border: none; cursor: pointer; }
+        .spec-box { background: #f8fafc; padding: 16px; border-radius: 16px; margin-top: 16px; }
+        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
+        @media (max-width: 800px) { .compare-grid { grid-template-columns: 1fr; } .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><h1> onlineshopping</h1><span>Future-ready electronics</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="deals.html">Deals</a></li>
+                    <li><a href="brands.html">Brands</a></li><li><a href="support.html">Support</a></li><li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="track.html">Track Order</a></li>
+                    <li><a href="compare.html" class="active">Compare</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h2> Compare Products</h2>
+        <p>Select two products to see side-by-side comparison</p>
+        <div class="compare-grid">
+            <div class="compare-card"><h3>Product A</h3><select id="compareProdA"><option value="1">ProBook Ultra 16 ($1299)</option><option value="2">Orion Wireless Earbuds ($99)</option><option value="3">Quantum Smartwatch X ($249)</option><option value="4">4K Action Camera Pro ($399)</option><option value="5">Gaming Mech Keyboard ($119)</option></select><div id="specA" class="spec-box">Select a product</div></div>
+            <div class="compare-card"><h3>Product B</h3><select id="compareProdB"><option value="2">Orion Wireless Earbuds ($99)</option><option value="1">ProBook Ultra 16 ($1299)</option><option value="3">Quantum Smartwatch X ($249)</option><option value="4">4K Action Camera Pro ($399)</option><option value="5">Gaming Mech Keyboard ($119)</option></select><div id="specB" class="spec-box">Select a product</div></div>
+        </div>
+        <button class="btn-primary" id="compareBtn" style="width: auto; padding: 12px 32px;">Compare Now →</button>
+    </main>
+    <footer><div class="container"><p>© 2025 Onlineshopping— Find the perfect device</p></div></footer>
+    <script>
+        const productSpecs = {
+            1: { name: "ProBook Ultra 16", price: "$1299", specs: "16GB RAM, 512GB SSD, Intel i7, 14\" Display, 10hr battery" },
+            2: { name: "Orion Wireless Earbuds", price: "$99", specs: "Active Noise Cancellation, 24hr battery, IPX5 water resistant" },
+            3: { name: "Quantum Smartwatch X", price: "$249", specs: "GPS, Heart Rate Monitor, 7-day battery, AMOLED display" },
+            4: { name: "4K Action Camera Pro", price: "$399", specs: "4K@60fps, Waterproof to 33ft, Image Stabilization" },
+            5: { name: "Gaming Mech Keyboard", price: "$119", specs: "Mechanical switches, RGB lighting, Anti-ghosting" }
+        };
+        let cart = JSON.parse(localStorage.getItem('onlineshopping_cart') || '[]');
+        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; }
+        document.getElementById('cartIcon').addEventListener('click', () => { if(cart.length===0) alert("Cart empty"); else alert(cart.map(i=>i.name).join(', ')); });
+        document.getElementById('compareBtn')?.addEventListener('click', () => {
+            let idA = document.getElementById('compareProdA').value;
+            let idB = document.getElementById('compareProdB').value;
+            let specA = productSpecs[idA];
+            let specB = productSpecs[idB];
+            document.getElementById('specA').innerHTML = `<strong>${specA.name}</strong><br> ${specA.price}<br> ${specA.specs}`;
+            document.getElementById('specB').innerHTML = `<strong>${specB.name}</strong><br> ${specB.price}<br> ${specB.specs}`;
+        });
+        updateCartUI();
+    </script>
+</body>
+</html>

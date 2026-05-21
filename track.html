@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onlineshopping | Track Order - Shipping Status</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
+        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
+        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .track-card { background: white; border-radius: 28px; padding: 40px; margin: 30px 0; text-align: center; }
+        .track-input { padding: 14px; border-radius: 40px; border: 1px solid #cbd5e1; width: 100%; max-width: 350px; font-size: 1rem; }
+        .btn-primary { background: #1f6390; color: white; border: none; padding: 12px 28px; border-radius: 40px; cursor: pointer; margin-top: 16px; }
+        .track-result { margin-top: 24px; padding: 20px; background: #f1f5f9; border-radius: 20px; display: none; }
+        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
+        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><h1> ElectroHub</h1><span>Future-ready electronics</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="deals.html">Deals</a></li>
+                    <li><a href="brands.html">Brands</a></li><li><a href="support.html">Support</a></li><li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="track.html" class="active">Track Order</a></li>
+                    <li><a href="compare.html">Compare</a></li><li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h2> Track Your Order</h2>
+        <div class="track-card">
+            <i class="fas fa-shipping-fast" style="font-size: 3rem; color: #1f6390;"></i>
+            <p style="margin: 16px 0;">Enter your order ID to get real-time status</p>
+            <input type="text" id="orderId" placeholder="Order ID (e.g., EH-12345)" class="track-input">
+            <br><button class="btn-primary" id="trackBtn">Track Now →</button>
+            <div id="trackResult" class="track-result"></div>
+        </div>
+        <div class="track-card" style="margin-top:20px;"><h3>Sample Orders for Demo</h3><p>EH-1001 → Shipped<br>EH-1002 → Delivered<br>EH-1003 → Processing</p></div>
+    </main>
+    <footer><div class="container"><p>© 2025 Onlineshopping — Real-time order tracking</p></div></footer>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('onlineshopping_cart') || '[]');
+        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; }
+        document.getElementById('cartIcon').addEventListener('click', () => { if(cart.length===0) alert("Cart empty"); else alert(cart.map(i=>i.name).join(', ')); });
+        document.getElementById('trackBtn')?.addEventListener('click', () => {
+            let order = document.getElementById('orderId')?.value;
+            let resultDiv = document.getElementById('trackResult');
+            if(order === "EH-1001") resultDiv.innerHTML = " Status: <strong>Shipped</strong><br>📅 Estimated delivery: May 24, 2025<br>📍 Last update: Sorting center, Austin TX";
+            else if(order === "EH-1002") resultDiv.innerHTML = " Status: <strong>Delivered</strong><br>📅 Delivered on May 20, 2025<br>📍 Delivered to your address";
+            else if(order === "EH-1003") resultDiv.innerHTML = " Status: <strong>Processing</strong><br>📅 Order confirmed, preparing to ship";
+            else if(order && order.length>0) resultDiv.innerHTML = "🔍 Order not found. Please check your order ID or contact support.<br>💡 Try: EH-1001, EH-1002, or EH-1003 for demo";
+            else resultDiv.innerHTML = "❌ Please enter an order ID";
+            resultDiv.style.display = 'block';
+        });
+        updateCartUI();
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online shopping | Home - Premium Electronics Store</title>
+    <title>onlineshopping | Deals - Hot Discounts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -15,33 +15,29 @@
         .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
         .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; transition: 0.2s; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
         .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
         .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-        .hero { background: linear-gradient(135deg, #eef5fa 0%, #ffffff 100%); border-radius: 32px; padding: 48px 40px; margin: 20px 0 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-        .hero-content h2 { font-size: 2.5rem; font-weight: 800; color: #0f2b3b; }
-        .btn-primary { background: #1f6390; border: none; padding: 12px 28px; border-radius: 40px; color: white; font-weight: 600; margin-top: 20px; cursor: pointer; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin: 32px 0; }
-        .product-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e9edf2; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-4px); }
-        .product-card i { font-size: 3rem; color: #2c7da0; }
-        .price { font-weight: 700; color: #1f6390; font-size: 1.3rem; margin: 10px 0; }
-        .btn-buy { background: #1f6390; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; }
-        .info-card { background: white; border-radius: 28px; padding: 32px; margin: 20px 0; }
+        .product-card { background: white; border-radius: 24px; padding: 20px; text-align: center; border: 2px solid #ff9800; position: relative; }
+        .deal-badge { background: #ff9800; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; position: absolute; top: -10px; right: 20px; }
+        .price { font-weight: 700; color: #e67e22; font-size: 1.3rem; margin: 10px 0; }
+        .old-price { text-decoration: line-through; color: gray; font-size: 0.9rem; margin-right: 8px; }
+        .btn-buy { background: #e67e22; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; }
         footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
         .toast { position: fixed; bottom: 30px; right: 30px; background: #1f2e3a; color: white; padding: 12px 24px; border-radius: 50px; display: none; z-index: 999; }
-        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .hero { flex-direction: column; text-align: center; } .nav-links { justify-content: center; } }
+        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="navbar">
-                <div class="logo"><h1> Electronicshop</h1><span>Future-ready electronics</span></div>
+                <div class="logo"><h1>onlineshopping</h1><span>Future-ready electronics</span></div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="deals.html" class="active">Deals</a></li>
                     <li><a href="brands.html">Brands</a></li>
                     <li><a href="support.html">Support</a></li>
                     <li><a href="about.html">About</a></li>
@@ -58,33 +54,28 @@
         </div>
     </header>
     <main class="container">
-        <div class="hero">
-            <div class="hero-content"><h2>Next‑gen electronics</h2><p>Premium laptops, audio, smartwatches & more. Free shipping + 2-year warranty.</p><button class="btn-primary" onclick="location.href='shop.html'">Shop Now →</button></div>
-            <div><i class="fas fa-microchip" style="font-size: 5rem; color:#2c7da0;"></i></div>
-        </div>
-        <div class="info-card"><h3><i class="fas fa-bolt"></i> Why ElectroHub?</h3><p>✓ Authorized reseller for top brands ✓ 30-day easy returns ✓ Expert support ✓ Secure payments</p></div>
-        <h3> Bestsellers</h3>
-        <div class="products-grid" id="bestsellerGrid"></div>
+        <h2> Flash Deals & Offers</h2>
+        <p>Limited time discounts — up to 40% off selected items</p>
+        <div class="products-grid" id="dealsGrid"></div>
     </main>
-    <footer><div class="container"><p>© 2025 Onlineshopping — Premium Electronics Store | 13 Interconnected Pages</p><p><i class="fas fa-shield-alt"></i> Secure checkout | Free Returns | 24/7 Support</p></div></footer>
+    <footer><div class="container"><p>© 2025 Onlineshopping — Deals end soon! Grab yours now.</p></div></footer>
     <div id="toastMsg" class="toast">Added to cart 🛒</div>
     <script>
-        const products = [
-            { id: 1, name: "ProBook Ultra 16", price: 1299, imgIcon: "fa-laptop" },
-            { id: 2, name: "Orion Wireless Earbuds", price: 99, imgIcon: "fa-headphones" },
-            { id: 3, name: "Quantum Smartwatch X", price: 249, imgIcon: "fa-clock" },
-            { id: 4, name: "4K Action Camera Pro", price: 399, imgIcon: "fa-video" }
+        const dealProducts = [
+            { id: 2, name: "Orion Wireless Earbuds", price: 99, salePrice: 69, imgIcon: "fa-headphones" },
+            { id: 4, name: "4K Action Camera Pro", price: 399, salePrice: 299, imgIcon: "fa-video" },
+            { id: 6, name: "UltraWide 34 Monitor", price: 449, salePrice: 379, imgIcon: "fa-tv" },
+            { id: 9, name: "Gaming Mouse Xtreme", price: 59, salePrice: 39, imgIcon: "fa-mouse" }
         ];
         let cart = JSON.parse(localStorage.getItem('onlineshopping_cart') || '[]');
-        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; localStorage.setItem('onlineshopping_cart', JSON.stringify(cart)); }
+        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; localStorage.setItem('electrohub_cart', JSON.stringify(cart)); }
         function addToCart(name, price) { cart.push({ name, price }); updateCartUI(); let t = document.getElementById('toastMsg'); t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1500); }
-        function renderProducts(productsArray, containerId) {
-            const container = document.getElementById(containerId);
-            if(!container) return;
-            container.innerHTML = productsArray.map(p => `<div class="product-card"><i class="fas ${p.imgIcon} fa-3x"></i><h3>${p.name}</h3><div class="price">$${p.price}</div><button class="btn-buy" data-name="${p.name}" data-price="${p.price}">Add to Cart</button></div>`).join('');
+        function renderDeals() {
+            const container = document.getElementById('dealsGrid');
+            container.innerHTML = dealProducts.map(p => `<div class="product-card"><span class="deal-badge">🔥 SALE</span><i class="fas ${p.imgIcon} fa-3x"></i><h3>${p.name}</h3><div class="price"><span class="old-price">$${p.price}</span> $${p.salePrice}</div><button class="btn-buy" data-name="${p.name}" data-price="${p.salePrice}">Add to Cart</button></div>`).join('');
             document.querySelectorAll('.btn-buy').forEach(btn => btn.addEventListener('click', () => addToCart(btn.dataset.name, parseFloat(btn.dataset.price))));
         }
-        renderProducts(products, 'bestsellerGrid');
+        renderDeals();
         document.getElementById('cartIcon').addEventListener('click', () => { if(cart.length===0) alert("Cart empty"); else alert(cart.map((i,idx)=>`${idx+1}. ${i.name} - $${i.price}`).join('\n') + `\nTotal: $${cart.reduce((s,i)=>s+i.price,0)}`); });
         updateCartUI();
     </script>

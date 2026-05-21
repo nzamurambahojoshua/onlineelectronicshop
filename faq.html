@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onlineshopping | FAQ - Frequently Asked Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
+        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
+        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .faq-card { background: white; border-radius: 24px; padding: 28px; margin: 16px 0; border: 1px solid #e9edf2; }
+        details { margin: 16px 0; padding: 12px; background: #f8fafc; border-radius: 16px; cursor: pointer; }
+        summary { font-weight: 600; padding: 8px; }
+        details p { margin-top: 12px; padding: 8px; color: #2c3e50; }
+        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
+        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><h1> onlineshopping</h1><span>Future-ready electronics</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="deals.html">Deals</a></li>
+                    <li><a href="brands.html">Brands</a></li><li><a href="support.html">Support</a></li><li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="track.html">Track Order</a></li><li><a href="compare.html">Compare</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h2> Frequently Asked Questions</h2>
+        <div class="faq-card">
+            <details><summary> What payment methods do you accept?</summary><p>We accept Visa, Mastercard, American Express, PayPal, Apple Pay, Google Pay, and Buy Now Pay Later (Klarna/Affirm). All payments are secure and encrypted.</p></details>
+            <details><summary> How long does shipping take?</summary><p>Standard shipping: 3-5 business days. Express shipping: 1-2 business days. Free standard shipping on orders over $49.</p></details>
+            <details><summary> What is your return policy?</summary><p>We offer 30-day hassle-free returns. Items must be in original condition with packaging. Return shipping is free for defective products.</p></details>
+            <details><summary>Do you offer repairs?</summary><p>Yes, we have authorized service centers nationwide. Mail-in repairs are also available. Contact support for a repair ticket.</p></details>
+            <details><summary> Are products authentic?</summary><p>100% authentic, directly sourced from manufacturers. We are an authorized reseller for all brands featured on our site.</p></details>
+            <details><summary> How do I track my order?</summary><p>Go to our <a href="track.html">Track Order page</a> and enter your order ID. You'll receive real-time shipping updates.</p></details>
+            <details><summary> How do I leave a review?</summary><p>Visit our <a href="reviews.html">Reviews page</a> to share your experience. We appreciate your feedback!</p></details>
+        </div>
+    </main>
+    <footer><div class="container"><p>© 2025 Onlineshopping — We're here to answer your questions</p></div></footer>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('onlineshopping_cart') || '[]');
+        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; }
+        document.getElementById('cartIcon').addEventListener('click', () => { if(cart.length===0) alert("Cart empty"); else alert(cart.map(i=>i.name).join(', ')); });
+        updateCartUI();
+    </script>
+</body>
+</html>

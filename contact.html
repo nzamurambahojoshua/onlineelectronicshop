@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onlineshopping | Contact - Get In Touch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
+        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
+        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
+        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .contact-card { background: white; border-radius: 24px; padding: 32px; text-align: center; border: 1px solid #e9edf2; }
+        .contact-card i { font-size: 2.5rem; color: #1f6390; margin-bottom: 16px; }
+        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border-radius: 30px; border: 1px solid #cbd5e1; font-family: inherit; }
+        .btn-primary { background: #1f6390; color: white; border: none; padding: 12px 28px; border-radius: 40px; cursor: pointer; width: 100%; font-weight: 600; }
+        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
+        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo"><h1> onlineshopping</h1><span>Future-ready electronics</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="deals.html">Deals</a></li>
+                    <li><a href="brands.html">Brands</a></li><li><a href="support.html">Support</a></li><li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li><li><a href="blog.html">Blog</a></li><li><a href="warranty.html">Warranty</a></li>
+                    <li><a href="reviews.html">Reviews</a></li><li><a href="track.html">Track Order</a></li><li><a href="compare.html">Compare</a></li><li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h2> Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-card"><i class="fas fa-envelope"></i><h3>Email</h3><p>joshuanzamurambaho@gmail.com</p><p>support@electrohub.com</p></div>
+            <div class="contact-card"><i class="fas fa-phone-alt"></i><h3>Phone</h3><p>+250791737387</p><p>Mon-Fri, 9am-6pm EST</p></div>
+            <div class="contact-card"><i class="fas fa-map-marker-alt"></i><h3>Headquarters</h3>
+                <p>Rwanda,musanze musanze</p></div>
+        </div>
+        <div class="contact-card"><h3>Send us a message</h3><input type="text" id="contactName" placeholder="Your name"><input type="email" id="contactEmail" placeholder="Email address"><textarea id="contactMsg" rows="4" placeholder="How can we help?"></textarea><button class="btn-primary" id="sendMsgBtn">Send Inquiry →</button></div>
+    </main>
+    <footer><div class="container"><p>© 2025 onlineshopping — We reply within 24 hours</p></div></footer>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('onlineshopping_cart') || '[]');
+        function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; }
+        document.getElementById('cartIcon').addEventListener('click', () => { if(cart.length===0) alert("Cart empty"); else alert(cart.map(i=>i.name).join(', ')); });
+        document.getElementById('sendMsgBtn')?.addEventListener('click', () => { let n=document.getElementById('contactName')?.value, e=document.getElementById('contactEmail')?.value, m=document.getElementById('contactMsg')?.value; if(n&&e&&m) alert(` Thanks ${n}, we'll respond within 24h.`); else alert("Please fill all fields."); });
+        updateCartUI();
+    </script>
+</body>
+</html>
