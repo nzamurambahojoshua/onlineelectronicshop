@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ElectroHub | Premium Electronics Store - 13 Pages</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fb;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 16px 0;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0b2b44, #1e6f9f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #2c7da0;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #1f7b9e;
+            border-bottom: 2px solid #1f7b9e;
+            padding-bottom: 4px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.4rem;
+            color: #1e2a3e;
+            cursor: pointer;
+            background: #f1f5f9;
+            padding: 8px 14px;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+
+        .cart-icon:hover {
+            background: #e2e8f0;
+        }
+
+        /* pages */
+        .page {
+            display: none;
+            padding: 40px 0 70px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(135deg, #eef5fa 0%, #ffffff 100%);
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 20px 0 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0f2b3b;
+        }
+
+        .hero-btn {
+            background: #1f6390;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .hero-btn:hover {
+            background: #0e4a6e;
+        }
+
+        /* product grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 32px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e9edf2;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .product-card i {
+            font-size: 3rem;
+            color: #2c7da0;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #1f6390;
+            font-size: 1.3rem;
+            margin: 10px 0;
+        }
+
+        .btn-buy {
+            background: #1f6390;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: 0.2s;
+        }
+
+        .btn-buy:hover {
+            background: #0e4a6e;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f8;
+            margin: 20px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            background: #f8fafc;
+            border-radius: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f6390;
+        }
+
+        .warranty-badge {
+            background: #e8f0fe;
+            padding: 16px;
+            border-radius: 16px;
+            margin: 16px 0;
+        }
+
+        footer {
+            background: #0e2a36;
+            color: #cbd5e1;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1f2e3a;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            .navbar { flex-direction: column; gap: 12px; }
+            .nav-links { gap: 12px; justify-content: center; }
+            .hero { flex-direction: column; text-align: center; }
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .review-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 16px 0;
+        }
+
+        .track-input {
+            padding: 12px;
+            border-radius: 30px;
+            border: 1px solid #cbd5e1;
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1> ElectroHub</h1>
+                <span>Future-ready electronics</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                
+                <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-page="shop" class="nav-link">Shop</a></li>
+                <li><a href="#" data-page="deals" class="nav-link">Deals</a></li>
+                <li><a href="#" data-page="brands" class="nav-link">Brands</a></li>
+                <li><a href="#" data-page="support" class="nav-link">Support</a></li>
+                <li><a href="#" data-page="about" class="nav-link">About</a></li>
+                <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+                <li><a href="#" data-page="blog" class="nav-link">Blog</a></li>
+               
+                <li><a href="#" data-page="warranty" class="nav-link">Warranty</a></li>
+                <li><a href="#" data-page="reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#" data-page="track" class="nav-link">Track Order</a></li>
+                <li><a href="#" data-page="compare" class="nav-link">Compare</a></li>
+                <li><a href="#" data-page="faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    
+    <div id="home-page" class="page active-page">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Next‑gen electronics</h2>
+                <p>Premium laptops, audio, smartwatches & more. Free shipping + 2-year warranty.</p>
+                <button class="hero-btn" id="heroShopBtn">Shop Now →</button>
+            </div>
+            <div><i class="fas fa-microchip" style="font-size: 5rem; color:#2c7da0;"></i></div>
+        </div>
+        <div class="info-card">
+            <h3><i class="fas fa-bolt"></i> Why ElectroHub?</h3>
+            <p>✓ Authorized reseller for top brands ✓ 30-day easy returns ✓ Expert customer support ✓ Secure payments</p>
+        </div>
+        <h3> Bestsellers</h3>
+        <div class="products-grid" id="bestsellerGrid"></div>
+    </div>
+
+   
+    <div id="shop-page" class="page">
+        <h2> All Electronics</h2>
+        <p>Explore our full range of premium gadgets and accessories</p>
+        <div class="products-grid" id="shopGrid"></div>
+    </div>
+
+    <div id="deals-page" class="page">
+        <h2> Flash Deals & Offers</h2>
+        <p>Limited time discounts — up to 40% off selected items</p>
+        <div class="products-grid" id="dealsGrid"></div>
+    </div>
+
+    <div id="brands-page" class="page">
+        <h2> Official Brands</h2>
+        <div class="info-card">
+            <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;">
+                <div><i class="fab fa-apple fa-3x"></i><br/>Apple</div>
+                <div><i class="fab fa-samsung fa-3x"></i><br/>Samsung</div>
+                <div><i class="fab fa-sony fa-3x"></i><br/>Sony</div>
+                <div><i class="fas fa-laptop-code fa-3x"></i><br/>Dell</div>
+                <div><i class="fas fa-headphones fa-3x"></i><br/>Bose</div>
+                <div><i class="fas fa-clock fa-3x"></i><br/>Garmin</div>
+                <div><i class="fas fa-gamepad fa-3x"></i><br/>Razer</div>
+                <div><i class="fas fa-microphone-alt fa-3x"></i><br/>JBL</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="support-page" class="page">
+        <h2> Customer Support</h2>
+        <div class="info-card">
+            <i class="fas fa-headset fa-2x"></i>
+            <h3>24/7 Technical Assistance</h3>
+            <p>🔧 Warranty registration | Return requests | 💻 Software help</p>
+            <p>Email: support@electrohub.com | Hotline: +1 (888) 674-3829</p>
+        </div>
+    </div>
+
+    
+    <div id="about-page" class="page">
+        <h2>About ElectroHub</h2>
+        <div class="info-card">
+            <p>Founded in 2020, ElectroHub brings the latest electronics to tech lovers everywhere. We curate premium gadgets — from flagship smartphones to professional audio gear.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number">50k+</div><div>Happy Customers</div></div>
+                <div class="stat-card"><div class="stat-number">4.9</div><div>Trustpilot Rating</div></div>
+                <div class="stat-card"><div class="stat-number">24/7</div><div>Support</div></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="contact-page" class="page">
+        <h2> Contact Us</h2>
+        <div class="info-card">
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> joshuanzamurambaho@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> <strong>Phone:</strong> +250791737387</p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>HQ:</strong> Rwanda, musanze</p>
+            <hr style="margin: 20px 0;">
+            <input type="text" id="contactName" placeholder="Your name" style="width:100%; padding: 12px; margin:8px 0; border-radius: 30px; border:1px solid #ccc;">
+            <input type="email" id="contactEmail" placeholder="Email" style="width:100%; padding: 12px; margin:8px 0; border-radius: 30px;">
+            <textarea id="contactMsg" rows="3" placeholder="Message..." style="width:100%; border-radius: 20px; padding: 12px;"></textarea>
+            <button id="sendMsgBtn" class="btn-buy" style="margin-top: 12px;">Send Inquiry</button>
+        </div>
+    </div>
+
+    <!-- PAGE 8: BLOG -->
+    <div id="blog-page" class="page">
+        <h2> Tech Blog</h2>
+        <div class="products-grid" id="blogGrid"></div>
+    </div>
+
+    
+    <div id="warranty-page" class="page">
+        <h2> Warranty & Protection</h2>
+        <div class="info-card">
+            <div class="warranty-badge"><i class="fas fa-shield-alt fa-2x"></i> <strong>2-Year Extended Warranty</strong> on all electronics</div>
+            <p>✔️ Free 1-year manufacturer warranty included<br>✔️ Accidental damage protection (+$29)<br>✔️ On-site repair service for premium devices<br>✔️ 100% parts and labor coverage</p>
+            <button class="btn-buy" id="warrantyBtn">Register Your Product →</button>
+        </div>
+    </div>
+
+    <!-- PAGE 10: REVIEWS (NEW) -->
+    <div id="reviews-page" class="page">
+        <h2> Customer Reviews</h2>
+        <div class="review-card"><i class="fas fa-star" style="color:#f5b042;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <strong>“Best laptop I've ever owned!”</strong> - Sarah M.</div>
+        <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <strong>“Fast shipping, excellent earbuds”</strong> - James K.</div>
+        <div class="review-card"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <strong>“Great support team”</strong> - Linda T.</div>
+        <div class="info-card"><h4>Write a review</h4><textarea id="newReview" rows="2" placeholder="Your feedback..." style="width:100%; border-radius:16px; padding:12px;"></textarea><button id="submitReviewBtn" class="btn-buy" style="margin-top:12px;">Submit Review</button></div>
+    </div>
+
+    <!-- PAGE 11: TRACK ORDER (NEW) -->
+    <div id="track-page" class="page">
+        <h2> Track Your Order</h2>
+        <div class="info-card">
+            <p>Enter your order ID to get real-time status:</p>
+            <input type="text" id="orderId" placeholder="Order ID (e.g., EH-12345)" class="track-input">
+            <button id="trackBtn" class="btn-buy" style="margin-top:16px;">Track Now</button>
+            <div id="trackResult" style="margin-top:24px; padding:16px; background:#f1f5f9; border-radius:16px;"></div>
+        </div>
+    </div>
+
+    <!-- PAGE 12: COMPARE (NEW) -->
+    <div id="compare-page" class="page">
+        <h2> Compare Products</h2>
+        <div class="info-card">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                <div><h3>Product A</h3><select id="compareProdA"><option value="1">ProBook Ultra 16</option><option value="2">Orion Earbuds</option><option value="3">Quantum Smartwatch</option></select><div id="specA" class="warranty-badge" style="margin-top:12px;"></div></div>
+                <div><h3>Product B</h3><select id="compareProdB"><option value="2">Orion Earbuds</option><option value="1">ProBook Ultra 16</option><option value="3">Quantum Smartwatch</option></select><div id="specB" class="warranty-badge" style="margin-top:12px;"></div></div>
+            </div>
+            <button id="compareBtn" class="btn-buy" style="margin-top:20px;">Compare →</button>
+        </div>
+    </div>
+
+    <!-- PAGE 13: FAQ (NEW) -->
+    <div id="faq-page" class="page">
+        <h2> Frequently Asked Questions</h2>
+        <div class="info-card">
+            <details><summary>💸 What payment methods do you accept?</summary><p>Visa, Mastercard, PayPal, Apple Pay, and Buy Now Pay Later (Klarna).</p></details>
+            <details><summary>🚚 How long does shipping take?</summary><p>Standard shipping: 3-5 business days. Express: 1-2 days.</p></details>
+            <details><summary>🔄 Can I return a product?</summary><p>Yes, 30-day hassle-free returns. Items must be in original condition.</p></details>
+            <details><summary>🔧 Do you offer repairs?</summary><p>Yes, visit our service centers or mail-in repairs.</p></details>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ElectroHub — Premium Electronics Store. 13 dedicated pages for your big project.</p>
+        <p><i class="fas fa-shield-alt"></i> Secure checkout | Free Returns | 24/7 Support</p>
+    </div>
+</footer>
+
+<div id="toastMsg" class="toast">Added to cart 🛒</div>
+
+<script>
+    
+    const products = [
+        { id: 1, name: "ProBook Ultra 16", price: 1299, category: "laptop", discount: false, imgIcon: "fa-laptop", specs: "16GB RAM, 512GB SSD, Intel i7" },
+        { id: 2, name: "Orion Wireless Earbuds", price: 99, category: "audio", discount: true, salePrice: 69, imgIcon: "fa-headphones", specs: "ANC, 24hr battery, IPX5" },
+        { id: 3, name: "Quantum Smartwatch X", price: 249, category: "wearable", discount: false, imgIcon: "fa-clock", specs: "GPS, Heart Rate, 7-day battery" },
+        { id: 4, name: "4K Action Camera Pro", price: 399, category: "camera", discount: true, salePrice: 299, imgIcon: "fa-video", specs: "Waterproof, 4K@60fps" },
+        { id: 5, name: "Gaming Mech Keyboard", price: 119, category: "accessory", discount: false, imgIcon: "fa-keyboard", specs: "RGB, Mechanical switches" }
+    ];
+
+    let cart = [];
+    function updateCartUI() { document.getElementById('cartCount').innerText = cart.length; localStorage.setItem('cart', JSON.stringify(cart)); }
+    function addToCart(name, price) { cart.push({ name, price }); updateCartUI(); showToast(); }
+    function showToast() { let t = document.getElementById('toastMsg'); t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1500); }
+
+    function renderProducts(productsArray, containerId, showCart=true) {
+        let container = document.getElementById(containerId);
+        if(!container) return;
+        container.innerHTML = '';
+        productsArray.forEach(p => {
+            let finalPrice = p.discount && p.salePrice ? p.salePrice : p.price;
+            let origHtml = p.discount ? `<span style="text-decoration:line-through;">$${p.price}</span> ` : '';
+            let btn = showCart ? `<button class="btn-buy" data-name="${p.name}" data-price="${finalPrice}">Add to Cart</button>` : '';
+            container.innerHTML += `<div class="product-card"><i class="fas ${p.imgIcon} fa-3x"></i><h3>${p.name}</h3><div class="price">${origHtml}$${finalPrice}</div>${btn}</div>`;
+        });
+        if(showCart) document.querySelectorAll('.btn-buy[data-name]').forEach(btn => btn.addEventListener('click', (e) => { let name = btn.dataset.name, price = parseFloat(btn.dataset.price); addToCart(name, price); }));
+    }
+
+    const blogPosts = [
+        { icon: "fa-microchip", title: "AI in Smartphones", desc: "How on-device AI transforms photography" },
+        { icon: "fa-headphones", title: "Best ANC Headphones 2025", desc: "Top picks under $250" },
+        { icon: "fa-laptop", title: "Gaming Laptops vs Desktops", desc: "Which gives better value?" }
+    ];
+    function renderBlog() {
+        let container = document.getElementById('blogGrid');
+        if(container) container.innerHTML = blogPosts.map(p => `<div class="product-card"><i class="fas ${p.icon} fa-2x"></i><h3>${p.title}</h3><p>${p.desc}</p><span style="color:#1f6390;">Read more →</span></div>`).join('');
+    }
+
+    
+    const pages = ['home','shop','deals','brands','support','about','contact','blog','warranty','reviews','track','compare','faq'];
+    function showPage(pageId) {
+        pages.forEach(p => { let el = document.getElementById(`${p}-page`); if(el) el.classList.remove('active-page'); });
+        document.getElementById(`${pageId}-page`).classList.add('active-page');
+        document.querySelectorAll('.nav-links a').forEach(link => { let lp = link.dataset.page; link.classList.toggle('active', lp === pageId); });
+        if(pageId === 'shop') renderProducts(products, 'shopGrid', true);
+        if(pageId === 'deals') renderProducts(products.filter(p=>p.discount), 'dealsGrid', true);
+        if(pageId === 'home') renderProducts(products.slice(0,4), 'bestsellerGrid', true);
+        if(pageId === 'blog') renderBlog();
+    }
+
+    
+    document.getElementById('trackBtn')?.addEventListener('click', () => {
+        let order = document.getElementById('orderId')?.value;
+        document.getElementById('trackResult').innerHTML = order ? `✅ Order ${order}: Shipped - Expected delivery in 2 days.` : '❌ Please enter order ID';
+    });
+
+    
+    document.getElementById('compareBtn')?.addEventListener('click', () => {
+        let idA = parseInt(document.getElementById('compareProdA').value);
+        let idB = parseInt(document.getElementById('compareProdB').value);
+        let prodA = products.find(p=>p.id===idA);
+        let prodB = products.find(p=>p.id===idB);
+        document.getElementById('specA').innerHTML = `<strong>${prodA.name}</strong><br>${prodA.specs || 'Standard specs'}<br>Price: $${prodA.discount?prodA.salePrice:prodA.price}`;
+        document.getElementById('specB').innerHTML = `<strong>${prodB.name}</strong><br>${prodB.specs || 'Standard specs'}<br>Price: $${prodB.discount?prodB.salePrice:prodB.price}`;
+    });
+
+    
+    document.getElementById('submitReviewBtn')?.addEventListener('click', () => {
+        let rev = document.getElementById('newReview')?.value;
+        if(rev) alert(`⭐ Thanks for your review: "${rev}"`);
+        else alert("Please write a review");
+    });
+
+    document.getElementById('warrantyBtn')?.addEventListener('click', () => alert("📝 Warranty registration form opened. (Demo) Your device is now protected!"));
+
+
+    document.getElementById('sendMsgBtn')?.addEventListener('click', () => {
+        let n = document.getElementById('contactName')?.value, e = document.getElementById('contactEmail')?.value, m = document.getElementById('contactMsg')?.value;
+        if(n && e && m) alert(` Thanks ${n}, we'll respond soon!`);
+        else alert("Please fill all fields");
+    });
+
+    
+    document.getElementById('cartIcon')?.addEventListener('click', () => {
+        if(cart.length===0) alert("Your cart is empty. Start shopping!");
+        else alert(`🛍️ Cart:\n${cart.map((i,idx)=>`${idx+1}. ${i.name} - $${i.price}`).join('\n')}\nTotal: $${cart.reduce((s,i)=>s+i.price,0)}`);
+    });
+
+    document.getElementById('heroShopBtn')?.addEventListener('click', () => showPage('shop'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); showPage(link.dataset.page); window.scrollTo(0,0); }));
+
+    
+    let savedCart = localStorage.getItem('cart');
+    if(savedCart) { try { cart = JSON.parse(savedCart); updateCartUI(); } catch(e){} }
+    renderProducts(products.slice(0,4), 'bestsellerGrid', true);
+    renderProducts(products, 'shopGrid', true);
+    renderProducts(products.filter(p=>p.discount), 'dealsGrid', true);
+    renderBlog();
+    showPage('home');
+</script>
+</body>
+</html>
