@@ -3,34 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online shopping | Home - Premium Electronics Store</title>
+    <title>Online electronics shop| Home - Premium Electronics Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
-        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; transition: 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
-        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-        .hero { background: linear-gradient(135deg, #eef5fa 0%, #ffffff 100%); border-radius: 32px; padding: 48px 40px; margin: 20px 0 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-        .hero-content h2 { font-size: 2.5rem; font-weight: 800; color: #0f2b3b; }
-        .btn-primary { background: #1f6390; border: none; padding: 12px 28px; border-radius: 40px; color: white; font-weight: 600; margin-top: 20px; cursor: pointer; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin: 32px 0; }
-        .product-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e9edf2; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-4px); }
-        .product-card i { font-size: 3rem; color: #2c7da0; }
-        .price { font-weight: 700; color: #1f6390; font-size: 1.3rem; margin: 10px 0; }
-        .btn-buy { background: #1f6390; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; }
-        .info-card { background: white; border-radius: 28px; padding: 32px; margin: 20px 0; }
-        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
-        .toast { position: fixed; bottom: 30px; right: 30px; background: #1f2e3a; color: white; padding: 12px 24px; border-radius: 50px; display: none; z-index: 999; }
-        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .hero { flex-direction: column; text-align: center; } .nav-links { justify-content: center; } }
+        * { 
+            margin: 0;
+             padding: 0;
+              box-sizing: border-box;
+             }
+        body { 
+            font-family: 'Inter', sans-serif;
+             background: #f5f7fb;
+              color: #1a2c3e;
+             }
+        .container { 
+            max-width: 1280px;
+             margin: 0 auto;
+              padding: 0 24px;
+             }
+        header { 
+            background: #ffffff;
+             box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+              position: sticky; 
+              top: 0;
+               z-index: 100;
+             }
+        .navbar {
+             display: flex; 
+             align-items: center;
+              justify-content: space-between; 
+              flex-wrap: wrap;
+               padding: 16px 0; 
+            }
+        .logo h1 {
+             font-size: 1.8rem;
+              font-weight: 800;
+               background: linear-gradient(135deg, #0b2b44, #1e6f9f); 
+               -webkit-background-clip: text;
+                background-clip: text;
+                 color: transparent;
+                 }
+        .logo span { 
+            font-size: 0.7rem;
+             color: #2c7da0;
+              display: block;
+             }
+        .nav-links { 
+            display: flex;
+             gap: 16px; 
+             list-style: none;
+              flex-wrap: wrap; 
+            }
+        .nav-links a { 
+            text-decoration: none;
+             font-weight: 500;
+              color: #2c3e50;
+               font-size: 0.8rem;
+                transition: 0.2s;
+             }
+        .nav-links a:hover, .nav-links a.active {
+             color: #1f7b9e;
+              border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
+        .cart-icon { background: #f1f5f9; 
+            padding: 8px 14px;
+             border-radius: 40px; 
+             cursor: pointer; 
+             display: inline-flex;
+              align-items: center;
+               gap: 8px;
+             }
+        .hero {
+             background: linear-gradient(135deg, #eef5fa 0%, #ffffff 100%);
+              border-radius: 32px;
+               padding: 48px 40px;
+                margin: 20px 0 40px; 
+                display: flex;
+                 flex-wrap: wrap;
+                  align-items: center;
+                   justify-content: space-between;
+                 }
+        .hero-content h2 {
+             font-size: 2.5rem; 
+             font-weight: 800;
+              color: #0f2b3b; 
+            }
+        .btn-primary { 
+            background: #1f6390; 
+            border: none; 
+            padding: 12px 28px; 
+            border-radius: 40px; 
+            color: white;
+             font-weight: 600;
+              margin-top: 20px;
+               cursor: pointer;
+             }
+
+        .products-grid { 
+            display: grid;
+             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+             gap: 28px; 
+             margin: 32px 0; 
+            }
+        .product-card { background: white;
+             border-radius: 24px;
+              padding: 20px;
+               text-align: center;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+                border: 1px solid #e9edf2; 
+                transition: transform 0.2s;
+             }
+
+        .product-card:hover {
+             transform: translateY(-4px);
+             }
+
+        .product-card i {
+             font-size: 3rem;
+             color: #2c7da0; 
+            }
+
+        .price {
+             font-weight: 700; 
+            color: #1f6390; 
+            font-size: 1.3rem;
+             margin: 10px 0; 
+            }
+
+        .btn-buy {
+             background: #1f6390;
+              color: white;
+               border: none;
+                padding: 10px 20px;
+                 border-radius: 40px;
+                  cursor: pointer;
+                 }
+
+        .info-card {
+             background: white;
+              border-radius: 28px;
+               padding: 32px;
+                margin: 20px 0;
+             }
+
+        footer { background: #0e2a36; 
+            color: #cbd5e1; 
+            padding: 40px 0;
+             text-align: center; 
+             margin-top: 40px;
+             }
+
+        .toast {
+             position: fixed;
+              bottom: 30px;
+               right: 30px; background: #1f2e3a;
+                color: white; 
+                padding: 12px 24px;
+                 border-radius: 50px; 
+                 display: none; 
+                 z-index: 999; 
+                }
+        @media (max-width: 1000px) {
+             .navbar {
+                 flex-direction: column;
+                  gap: 12px;
+                 }
+
+                 .hero {
+                     flex-direction: column; 
+                     text-align: center;
+                     }
+
+                      .nav-links {
+                         justify-content: center;
+                         } 
+                        }
     </style>
 </head>
 <body>
@@ -59,15 +206,17 @@
     </header>
     <main class="container">
         <div class="hero">
-            <div class="hero-content"><h2>Next‑gen electronics</h2><p>Premium laptops, audio, smartwatches & more. Free shipping + 2-year warranty.</p><button class="btn-primary" onclick="location.href='shop.html'">Shop Now →</button></div>
+            <div class="hero-content"><h2>Next‑gen electronics</h2><p>Premium laptops<br> Audio<br> smartwatches & more.<br> Free shipping + 1-year warranty.</p><button class="btn-primary" onclick="location.href='shop.html'">Shop Now →</button></div>
             <div><i class="fas fa-microchip" style="font-size: 5rem; color:#2c7da0;"></i></div>
         </div>
-        <div class="info-card"><h3><i class="fas fa-bolt"></i> Why ElectroHub?</h3><p>✓ Authorized reseller for top brands ✓ 30-day easy returns ✓ Expert support ✓ Secure payments</p></div>
+        <div class="info-card"><h3><i class="fas fa-bolt"></i> Why Online electronics shop?</h3>
+            <p> Authorized reseller for top brands <br> 30-day easy returns <br> Expert support<br>Secure payments</p></div>
         <h3> Bestsellers</h3>
         <div class="products-grid" id="bestsellerGrid"></div>
     </main>
-    <footer><div class="container"><p>© 2025 Onlineshopping — Premium Electronics Store | 13 Interconnected Pages</p><p><i class="fas fa-shield-alt"></i> Secure checkout | Free Returns | 24/7 Support</p></div></footer>
-    <div id="toastMsg" class="toast">Added to cart 🛒</div>
+    <footer><div class="container"><p>© 2025 Onlineshopping <br> Premium Electronics Store <br> 13 Interconnected Pages</p>
+        <p><i class="fas fa-shield-alt"></i> Secure checkout <br> Free Returns <br> 24/7 Support</p></div></footer>
+    <div id="toastMsg" class="toast">Added to cart </div>
     <script>
         const products = [
             { id: 1, name: "ProBook Ultra 16", price: 1299, imgIcon: "fa-laptop" },

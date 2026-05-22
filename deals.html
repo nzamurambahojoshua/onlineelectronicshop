@@ -7,33 +7,169 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
-        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
-        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
-        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin: 32px 0; }
-        .product-card { background: white; border-radius: 24px; padding: 20px; text-align: center; border: 2px solid #ff9800; position: relative; }
-        .deal-badge { background: #ff9800; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; position: absolute; top: -10px; right: 20px; }
-        .price { font-weight: 700; color: #e67e22; font-size: 1.3rem; margin: 10px 0; }
-        .old-price { text-decoration: line-through; color: gray; font-size: 0.9rem; margin-right: 8px; }
-        .btn-buy { background: #e67e22; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; }
-        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
-        .toast { position: fixed; bottom: 30px; right: 30px; background: #1f2e3a; color: white; padding: 12px 24px; border-radius: 50px; display: none; z-index: 999; }
-        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+        * {
+             margin: 0;
+             padding: 0;
+              box-sizing: border-box;
+             }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+         background: #f5f7fb;
+          color: #1a2c3e;
+         }
+
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto;
+             padding: 0 24px; 
+            }
+
+        header {
+             background: #ffffff;
+              box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+               position: sticky; 
+               top: 0; 
+               z-index: 100;
+             }
+
+        .navbar {
+             display: flex;
+              align-items: center; 
+              justify-content: space-between;
+               flex-wrap: wrap; 
+               padding: 16px 0; 
+            }
+
+        .logo h1 { 
+            font-size: 1.8rem;
+             font-weight: 800;
+              background: linear-gradient(135deg, #0b2b44, #1e6f9f); 
+              -webkit-background-clip: text;
+               background-clip: text; 
+               color: transparent; 
+            }
+
+        .logo span { 
+            font-size: 0.7rem;
+             color: #2c7da0;
+              display: block;
+             }
+
+        .nav-links {
+             display: flex;
+              gap: 16px;
+               list-style: none; 
+               flex-wrap: wrap;
+             }
+
+        .nav-links a { 
+            text-decoration: none; 
+            font-weight: 500; 
+            color: #2c3e50;
+             font-size: 0.8rem; 
+            }
+
+        .nav-links a:hover, .nav-links a.active { 
+            color: #1f7b9e; 
+            border-bottom: 2px solid #1f7b9e; 
+            padding-bottom: 4px;
+         }
+
+        .cart-icon {
+             background: #f1f5f9;
+              padding: 8px 14px; 
+              border-radius: 40px;
+               cursor: pointer; 
+               display: inline-flex; 
+               align-items: center;
+                gap: 8px; 
+            }
+
+        .products-grid {
+             display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+               gap: 28px; 
+               margin: 32px 0;
+             }
+
+        .product-card { 
+            background: white;
+             border-radius: 24px;
+              padding: 20px;
+               text-align: center;
+                border: 2px solid #ff9800;
+                 position: relative;
+                 }
+
+        .deal-badge { 
+            background: #ff9800;
+             color: white;
+              padding: 4px 12px;
+               border-radius: 20px;
+                font-size: 0.8rem;
+                 position: absolute;
+                  top: -10px; 
+                  right: 20px;
+                 }
+
+        .price {
+             font-weight: 700;
+              color: #e67e22;
+               font-size: 1.3rem; 
+               margin: 10px 0;
+             }
+
+        .old-price {
+             text-decoration: line-through;
+              color: gray;
+               font-size: 0.9rem; 
+               margin-right: 8px; 
+            }
+
+        .btn-buy {
+             background: #e67e22;
+              color: white; 
+              border: none;
+               padding: 10px 20px; 
+               border-radius: 40px;
+                cursor: pointer;
+             }
+
+        footer {
+             background: #0e2a36;
+              color: #cbd5e1;
+               padding: 40px 0;
+               text-align: center;
+                margin-top: 40px; 
+            }
+
+        .toast {
+             position: fixed;
+              bottom: 30px;
+               right: 30px; 
+               background: #1f2e3a; color: white; 
+               padding: 12px 24px;
+                border-radius: 50px;
+                 display: none;
+                  z-index: 999;
+                 }
+
+        @media (max-width: 1000px) {
+             .navbar { flex-direction: column;
+                 gap: 12px;
+                 }
+                  .nav-links {
+                     justify-content: center;
+                     } 
+                    }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="navbar">
-                <div class="logo"><h1>onlineshopping</h1><span>Future-ready electronics</span></div>
+                <div class="logo"><h1>Online Electronics shop</h1><span>Future-ready electronics</span></div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
@@ -59,7 +195,7 @@
         <div class="products-grid" id="dealsGrid"></div>
     </main>
     <footer><div class="container"><p>© 2025 Onlineshopping — Deals end soon! Grab yours now.</p></div></footer>
-    <div id="toastMsg" class="toast">Added to cart 🛒</div>
+    <div id="toastMsg" class="toast">Added to cart </div>
     <script>
         const dealProducts = [
             { id: 2, name: "Orion Wireless Earbuds", price: 99, salePrice: 69, imgIcon: "fa-headphones" },
@@ -72,7 +208,7 @@
         function addToCart(name, price) { cart.push({ name, price }); updateCartUI(); let t = document.getElementById('toastMsg'); t.style.display = 'block'; setTimeout(() => t.style.display = 'none', 1500); }
         function renderDeals() {
             const container = document.getElementById('dealsGrid');
-            container.innerHTML = dealProducts.map(p => `<div class="product-card"><span class="deal-badge">🔥 SALE</span><i class="fas ${p.imgIcon} fa-3x"></i><h3>${p.name}</h3><div class="price"><span class="old-price">$${p.price}</span> $${p.salePrice}</div><button class="btn-buy" data-name="${p.name}" data-price="${p.salePrice}">Add to Cart</button></div>`).join('');
+            container.innerHTML = dealProducts.map(p => `<div class="product-card"><span class="deal-badge"> SALE</span><i class="fas ${p.imgIcon} fa-3x"></i><h3>${p.name}</h3><div class="price"><span class="old-price">$${p.price}</span> $${p.salePrice}</div><button class="btn-buy" data-name="${p.name}" data-price="${p.salePrice}">Add to Cart</button></div>`).join('');
             document.querySelectorAll('.btn-buy').forEach(btn => btn.addEventListener('click', () => addToCart(btn.dataset.name, parseFloat(btn.dataset.price))));
         }
         renderDeals();

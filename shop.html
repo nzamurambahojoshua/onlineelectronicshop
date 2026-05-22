@@ -3,30 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>onlineshopping| Shop - All Electronics</title>
+    <title>Online Electronics shop| Shop - All Electronics</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f5f7fb; color: #1a2c3e; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        header { background: #ffffff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .navbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0; }
-        .logo h1 { font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #0b2b44, #1e6f9f); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .logo span { font-size: 0.7rem; color: #2c7da0; display: block; }
-        .nav-links { display: flex; gap: 16px; list-style: none; flex-wrap: wrap; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; font-size: 0.8rem; }
-        .nav-links a:hover, .nav-links a.active { color: #1f7b9e; border-bottom: 2px solid #1f7b9e; padding-bottom: 4px; }
-        .cart-icon { background: #f1f5f9; padding: 8px 14px; border-radius: 40px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; margin: 32px 0; }
-        .product-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e9edf2; transition: transform 0.2s; }
-        .product-card:hover { transform: translateY(-4px); }
-        .product-card i { font-size: 3rem; color: #2c7da0; }
-        .price { font-weight: 700; color: #1f6390; font-size: 1.3rem; margin: 10px 0; }
-        .btn-buy { background: #1f6390; color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; }
-        footer { background: #0e2a36; color: #cbd5e1; padding: 40px 0; text-align: center; margin-top: 40px; }
-        .toast { position: fixed; bottom: 30px; right: 30px; background: #1f2e3a; color: white; padding: 12px 24px; border-radius: 50px; display: none; z-index: 999; }
-        @media (max-width: 1000px) { .navbar { flex-direction: column; gap: 12px; } .nav-links { justify-content: center; } }
+        * { 
+            margin: 0;
+             padding: 0;
+              box-sizing: border-box; 
+            }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+         background: #f5f7fb;
+          color: #1a2c3e; 
+        }
+
+        .container { 
+            max-width: 1280px;
+             margin: 0 auto;
+              padding: 0 24px; 
+            }
+
+        header { 
+            background: #ffffff;
+             box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+              position: sticky;
+               top: 0; 
+               z-index: 100;
+             }
+
+        .navbar { 
+            display: flex;
+             align-items: center;
+              justify-content: space-between;
+               flex-wrap: wrap;
+                padding: 16px 0; 
+            }
+
+        .logo h1 {
+             font-size: 1.8rem;
+             font-weight: 800;
+              background: linear-gradient(135deg, #0b2b44, #1e6f9f); 
+              -webkit-background-clip: text; 
+              background-clip: text; 
+              color: transparent;
+             }
+
+        .logo span {
+             font-size: 0.7rem; 
+            color: #2c7da0;
+             display: block;
+             }
+
+        .nav-links { 
+            display: flex; 
+            gap: 16px;
+             list-style: none;
+              flex-wrap: wrap;
+             }
+
+        .nav-links a { 
+            text-decoration: none;
+             font-weight: 500;
+              color: #2c3e50;
+               font-size: 0.8rem; 
+            }
+        .nav-links a:hover, .nav-links a.active { 
+            color: #1f7b9e;
+             border-bottom: 2px solid #1f7b9e;
+              padding-bottom: 4px; 
+            }
+        .cart-icon { 
+            background: #f1f5f9;
+             padding: 8px 14px;
+              border-radius: 40px; 
+              cursor: pointer;
+               display: inline-flex;
+                align-items: center;
+                 gap: 8px;
+                 }
+        .products-grid { 
+            display: grid;
+             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+              gap: 28px;
+               margin: 32px 0;
+             }
+        .product-card { 
+            background: white;
+             border-radius: 24px; 
+             padding: 20px; 
+             text-align: center; 
+             box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+             border: 1px solid #e9edf2;
+              transition: transform 0.2s;
+             }
+        .product-card:hover { 
+            transform: translateY(-4px);
+         }
+        .product-card i { 
+            font-size: 3rem;
+             color: #2c7da0;
+             }
+        .price {
+             font-weight: 700;
+              color: #1f6390; 
+              font-size: 1.3rem; 
+              margin: 10px 0;
+             }
+        .btn-buy { 
+            background: #1f6390; 
+            color: white; 
+            border: none;
+             padding: 10px 20px;
+              border-radius: 40px;
+               cursor: pointer;
+             }
+        footer { 
+            background: #0e2a36; 
+            color: #cbd5e1; 
+            padding: 40px 0;
+             text-align: center;
+              margin-top: 40px;
+             }
+        .toast {
+             position: fixed;
+              bottom: 30px;
+               right: 30px; 
+               background: #1f2e3a;
+                color: white; padding: 12px 24px; 
+                border-radius: 50px; 
+                display: none; 
+                z-index: 999;
+             }
+        @media (max-width: 1000px)
+         { 
+            .navbar {
+                 flex-direction: column; 
+                gap: 12px;
+             } 
+             .nav-links { 
+                justify-content: center;
+             } 
+            }
     </style>
 </head>
 <body>
@@ -54,7 +173,7 @@
         </div>
     </header>
     <main class="container">
-        <h2>🛒 All Electronics</h2>
+        <h2> All Electronics</h2>
         <p>Explore our full range of premium gadgets and accessories</p>
         <div class="products-grid" id="shopGrid"></div>
     </main>
